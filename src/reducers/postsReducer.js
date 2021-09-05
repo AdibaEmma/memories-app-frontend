@@ -10,7 +10,7 @@ import {
 export default (state = [], action) => {
     switch (action.type) {
         case FETCH_POSTS:
-            return [ ...state, action.payload ]
+            return action.payload 
         case CREATE_POST:
             return 'CREATE_POST'
         case GET_POST:
