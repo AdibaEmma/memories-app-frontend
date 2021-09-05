@@ -7,19 +7,23 @@ import {
     DELETE_POST
 } from './types'
 
-export const create_post = () => async dispatch => {
-
+export const fetch_posts = () => async dispatch => {
     try {
         const { data } = await api.fetchPosts()
+        dispatch({ type: FETCH_POSTS, payload: data })
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+export const create_post = (post) => async dispatch => {
+    try {
+        const { data } = await api.createPost(post)
         dispatch({ type: CREATE_POST, payload: data })
     } catch (err) {
         console.log(err.message);
     }
     
-}
-
-export const fetch_posts = () => async dispatch => {
-    dispatch({ type: FETCH_POSTS, payload: [] })
 }
 
 export const get_post = () => async dispatch => {
