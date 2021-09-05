@@ -9,10 +9,16 @@ import {
 
 export default (state = [], action) => {
     switch (action.type) {
-        case FETCH_POSTS:
-            return 'FETCH_POSTS'
         case CREATE_POST:
             return 'CREATE_POST'
+        case FETCH_POSTS:
+            return 'FETCH_POSTS'
+        case GET_POST:
+            return state
+        case EDIT_POST:
+            return state
+        case DELETE_POST:
+            return state
         default:
             return state
     }
