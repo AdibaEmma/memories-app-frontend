@@ -8,7 +8,14 @@ import {
 } from './types'
 
 export const create_post = () => async dispatch => {
-    dispatch({ type: CREATE_POST, payload: []})
+
+    try {
+        const { data } = await api.fetchPosts()
+        dispatch({ type: CREATE_POST, payload: data })
+    } catch (err) {
+        console.log(err.message);
+    }
+    
 }
 
 export const fetch_posts = () => async dispatch => {
