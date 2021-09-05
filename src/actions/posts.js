@@ -1,3 +1,4 @@
+import * as api from '../api'
 import {
     CREATE_POST,
     FETCH_POSTS,
@@ -6,34 +7,22 @@ import {
     DELETE_POST
 } from './types'
 
-export const create_post = () => {
-    return {
-        type: CREATE_POST,
-    }
+export const create_post = () => async dispatch => {
+    dispatch({ type: CREATE_POST, payload: []})
 }
 
-export const fetch_posts = () => {
-    return {
-        type: FETCH_POSTS,
-        payload: 'payload'
-    }
+export const fetch_posts = () => async dispatch => {
+    dispatch({ type: FETCH_POSTS, payload: [] })
 }
 
-export const get_post = () => {
-    return {
-        type: GET_POST,
-        payload: 'get post'
-    }
+export const get_post = () => async dispatch => {
+    dispatch({ type: GET_POST, payload: [] })
 }
 
-export const edit_post = () => {
-    return {
-        type: EDIT_POST
-    }
+export const edit_post = () => async dispatch => {
+    dispatch({ type: EDIT_POST, payload: []})
 }
 
-export const delete_post = () => {
-    return {
-        type: DELETE_POST
-    }
+export const delete_post = () => async dispatch => {
+    dispatch({ type: DELETE_POST, payload: []})
 }
