@@ -28,7 +28,7 @@ const Form = () => {
     const clear = () => {
         
     }
-    console.log(postData);
+    
     return (
         <Paper className={classes.paper}>
             <form action="" autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
