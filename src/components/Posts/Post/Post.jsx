@@ -21,7 +21,7 @@ const Post = ({ post }) => {
                 </Button>
             </div>
             <div className={classes.details}>
-                <Typography variant="body2" color="textSecondary">{post.tags.map(tag => `# ${tag} `)}</Typography>
+                <Typography variant="body2" color="textSecondary">{post.tags.map(tag => `#${tag} `)}</Typography>
             </div>
             <CardContent>
             <Typography className={classes.title} variant="h5" color="textSecondary">{post.message}</Typography>
@@ -34,7 +34,7 @@ const Post = ({ post }) => {
                 </Button>
                 <Button size="small" color="primary" onClick={() => {}}>
                     <DeleteIcon fontSize="small" />
-                   Delete
+                    Delete
                 </Button>
             </CardActions>
         </Card>
