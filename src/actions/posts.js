@@ -35,8 +35,13 @@ export const get_post = (id) => async dispatch => {
     }
 }
 
-export const update_post = () => async dispatch => {
-    dispatch({ type: UPDATE_POST, payload: []})
+export const update_post = (id, post) => async dispatch => {
+    try {
+        const { data } = await api.updatePost(id, post)
+        dispatch({ type: UPDATE_POST, payload: data })
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export const delete_post = () => async dispatch => {
