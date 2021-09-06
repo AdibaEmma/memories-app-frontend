@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { TextField, Button, Typography, Paper } from '@material-ui/core'
 import FileBase from 'react-file-base64'
 import { useDispatch, useSelector } from 'react-redux'
@@ -16,12 +16,18 @@ const Form = ({ currentId, setCurrentId }) => {
         selectedFile: ''
     })
 
+    const post = useSelector((state ) => currentId ? state.posts.find(post => post._id === currentId) : null)
+
     const dispatch = useDispatch()
-    // const post = useSelector(state => state.posts.find(post => post.Id === currentId))
-    // if( currentId) {
-        
-    // }
-    // setPostData(post)
+
+    useEffect(() => {
+        if(post) setPostData(post)
+        console.log(postData);
+        // return () => {
+        //     setCurrentId(null)
+        // }
+    }, [post, postData])
+
     const onInputChange = (e, field) => setPostData({ ...postData, [field]: e.target.value }) 
 
    
@@ -31,6 +37,8 @@ const Form = ({ currentId, setCurrentId }) => {
             dispatch(update_post(currentId, postData))
         }
         dispatch(create_post(postData))
+
+        clear()
     }
 
     const clear = () => {
