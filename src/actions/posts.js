@@ -3,7 +3,7 @@ import {
     CREATE_POST,
     FETCH_POSTS,
     GET_POST,
-    EDIT_POST,
+    UPDATE_POST,
     DELETE_POST
 } from './types'
 
@@ -26,12 +26,17 @@ export const create_post = (post) => async dispatch => {
     
 }
 
-export const get_post = () => async dispatch => {
-    dispatch({ type: GET_POST, payload: [] })
+export const get_post = (id) => async dispatch => {
+    try {
+        const { data } = await api.getPost(id)
+        dispatch({ type: GET_POST, payload: data })
+    } catch (err) {
+        console.log(err);
+    }
 }
 
-export const edit_post = () => async dispatch => {
-    dispatch({ type: EDIT_POST, payload: []})
+export const update_post = () => async dispatch => {
+    dispatch({ type: UPDATE_POST, payload: []})
 }
 
 export const delete_post = () => async dispatch => {

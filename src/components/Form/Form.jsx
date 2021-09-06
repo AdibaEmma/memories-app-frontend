@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 
 import useStyles from './styles'
 import { create_post } from '../../actions/posts'
+
 const Form = () => {
     const classes = useStyles()
     const [postData, setPostData] = useState({
