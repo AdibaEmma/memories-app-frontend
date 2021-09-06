@@ -3,7 +3,7 @@ import {
     CREATE_POST,
     FETCH_POSTS,
     GET_POST,
-    EDIT_POST,
+    UPDATE_POST,
     DELETE_POST
 } from '../actions/types'
 
@@ -14,8 +14,8 @@ export default (state = [], action) => {
         case CREATE_POST:
             return [ ...state, action.payload]
         case GET_POST:
-            return state
-        case EDIT_POST:
+            return action.payload
+        case UPDATE_POST:
             return state
         case DELETE_POST:
             return state
