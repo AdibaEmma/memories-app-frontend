@@ -4,7 +4,8 @@ import {
     FETCH_POSTS,
     GET_POST,
     UPDATE_POST,
-    DELETE_POST
+    DELETE_POST,
+    LIKE_POST
 } from '../actions/types'
 
 export default (posts = [], action) => {
@@ -16,6 +17,7 @@ export default (posts = [], action) => {
         case GET_POST:
             return action.payload
         case UPDATE_POST:
+        case LIKE_POST:
             return posts.map(post => post._id === action.payload._id ? action.payload : post)
         case DELETE_POST:
             return posts.filter(post => post._id !== action.payload)
