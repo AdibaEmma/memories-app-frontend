@@ -52,4 +52,4 @@ export const delete_post = (id) => async dispatch => {
     } catch (err) {
         console.log(err)
     }
-    
+}
