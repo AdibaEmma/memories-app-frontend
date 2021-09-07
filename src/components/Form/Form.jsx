@@ -22,11 +22,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
     useEffect(() => {
         if(post) setPostData(post)
-        console.log(postData);
-        // return () => {
-        //     setCurrentId(null)
-        // }
-    }, [post, postData])
+    }, [post])
 
     const onInputChange = (e, field) => setPostData({ ...postData, [field]: e.target.value }) 
 
@@ -35,21 +31,15 @@ const Form = ({ currentId, setCurrentId }) => {
         e.preventDefault();
         if( currentId ) {
             dispatch(update_post(currentId, postData))
+        } else {
+            dispatch(create_post(postData))
         }
-        dispatch(create_post(postData))
-
         clear()
     }
 
     const clear = () => {
         setCurrentId(null)
-        setPostData({
-            creator: '',
-            title: '',
-            message: '',
-            tags: [],
-            selectedFile: ''
-        })
+        setPostData({creator: '', title: '', message: '', tags: [], selectedFile: ''})
     }
     
     return (
