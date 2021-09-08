@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 
@@ -7,15 +7,20 @@ import Input from './Input'
 
 const Auth = () => {
     const classes = useStyles() 
+    const [showpassword, setShowPassword] = useState(false)
 
-    const isSignUp = false;
+    const isSignUp = true;
 
     const onInputChange = () => {
 
     }
 
-    const onFormSubmit = () => {
+    const handleShowPassword = () => {
 
+    }
+
+    const onFormSubmit = () => {
+        setShowPassword(prevValue => !prevValue)
     }
 
     return (
@@ -36,7 +41,11 @@ const Auth = () => {
                                     </>
                                 )
                             }
+                            <Input name="email" label="Email Address" onInputChange={onInputChange} type="email" />
+                            <Input name="password" label="Password" onInputChange={onInputChange} type={showpassword ? "text" : "password"} handleShowPassword={handleShowPassword} />
+                            { isSignUp &&<Input name="confirmPassword" label="Repeat Password" onInputChange={onInputChange} type="password" /> }
                         </Grid>
+                        <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>{isSignUp ? 'Sign Up' : 'Sign In'}</Button>
                     </form>
                 </Paper>
             </Container>
