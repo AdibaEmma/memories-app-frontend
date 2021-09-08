@@ -1,7 +1,9 @@
 import React from 'react'
-import { Avatar, Button, Paper, Grid, Typography, Container, TextField } from '@material-ui/core'
+import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 
 import useStyles from './styles'
+import Input from './Input'
 
 const Auth = () => {
     const classes = useStyles() 
@@ -29,7 +31,8 @@ const Auth = () => {
                             {
                                 isSignUp && (
                                     <>
-                                        <TextField name="firstName" label="First Name" autoFocus xs={6} onChange ={onInputChange} />
+                                        <Input name="firstName" label="First Name" autoFocus onInputChange={onInputChange} half />
+                                        <Input name="lastName" label="Last Name" onInputChange={onInputChange} half />
                                     </>
                                 )
                             }
