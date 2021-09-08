@@ -8,8 +8,7 @@ import Input from './Input'
 const Auth = () => {
     const classes = useStyles() 
     const [showpassword, setShowPassword] = useState(false)
-
-    const isSignUp = true;
+    const [isSignUp, setIsSingUP] = useState(false)
 
     const onInputChange = () => {
 
@@ -17,6 +16,10 @@ const Auth = () => {
 
     const handleShowPassword = () => {
 
+    }
+
+    const switchMode = () => {
+        setIsSingUP(prevValue => !prevValue)
     }
 
     const onFormSubmit = () => {
@@ -46,6 +49,13 @@ const Auth = () => {
                             { isSignUp &&<Input name="confirmPassword" label="Repeat Password" onInputChange={onInputChange} type="password" /> }
                         </Grid>
                         <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>{isSignUp ? 'Sign Up' : 'Sign In'}</Button>
+                        <Grid container justifyContent="flex-end">
+                            <Grid item>
+                                <Button onClick={switchMode}>
+                                    {isSignUp ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
+                                </Button>
+                            </Grid>
+                        </Grid>
                     </form>
                 </Paper>
             </Container>
