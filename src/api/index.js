@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const live_api = false
+const live_api = true
 const url = live_api ? 'http://localhost/5000/posts' : 'https://memsmile.herokuapp.com/posts';
 
 export const fetchPosts = () => axios.get(url)
