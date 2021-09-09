@@ -37,7 +37,7 @@ const Auth = () => {
         const token = res?.tokenId
 
         try {
-            dispatch({ type: 'AUTH', data: {result, token }})
+            dispatch({ type: 'AUTH', payload: {result, token }})
         } catch (error) {
             console.log(error);
         }

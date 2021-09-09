@@ -8,8 +8,8 @@ const initialState = {
 export default (state=initialState, action) => {
     switch (action.type) {
         case AUTH:
-            console.log(action?.data);
-            return state
+            localStorage.setItem('profile', JSON.stringify({...action?.payload}))
+            return { ...state, authData: action?.payload}
         case LOGOUT:
             return state
         default:
