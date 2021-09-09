@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux'
 import useStyles from './styles'
 import Input from './Input'
 import Icon from './icon'
+import { useHistory } from 'react-router'
 
 const Auth = () => {
     const classes = useStyles() 
@@ -14,6 +15,7 @@ const Auth = () => {
     const [isSignUp, setIsSingUP] = useState(false)
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const onInputChange = () => {
 
@@ -38,6 +40,7 @@ const Auth = () => {
 
         try {
             dispatch({ type: 'AUTH', payload: {result, token }})
+            history.push('/')
         } catch (error) {
             console.log(error);
         }

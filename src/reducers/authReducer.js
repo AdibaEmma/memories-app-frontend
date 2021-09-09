@@ -11,7 +11,8 @@ export default (state=initialState, action) => {
             localStorage.setItem('profile', JSON.stringify({...action?.payload}))
             return { ...state, authData: action?.payload}
         case LOGOUT:
-            return state
+            localStorage.clear()
+            return { ...state, authData: null}
         default:
             return state
     }
