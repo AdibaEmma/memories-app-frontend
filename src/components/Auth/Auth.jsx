@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core'
+import { Avatar, Button, Paper, Grid, Typography, Container, formatMs } from '@material-ui/core'
 import { GoogleLogin } from 'react-google-login'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import { useDispatch } from 'react-redux'
@@ -13,12 +13,13 @@ const Auth = () => {
     const classes = useStyles() 
     const [showpassword, setShowPassword] = useState(false)
     const [isSignUp, setIsSingUP] = useState(false)
-
+    const [formData, setFormData] = useState({firstName: '', lastName: '', email: '', password: '', confirmPassword: ''})
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const onInputChange = () => {
 
+    const onInputChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value})
     }
 
     const handleShowPassword = () => {
@@ -30,8 +31,9 @@ const Auth = () => {
         setShowPassword(false)
     }
 
-    const onFormSubmit = () => {
-        
+    const onFormSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData);
     }
 
     const googleSuccess = async (res) => {
