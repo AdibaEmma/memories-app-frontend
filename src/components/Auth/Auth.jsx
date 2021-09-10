@@ -3,11 +3,12 @@ import { Avatar, Button, Paper, Grid, Typography, Container, formatMs } from '@m
 import { GoogleLogin } from 'react-google-login'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 import useStyles from './styles'
 import Input from './Input'
 import Icon from './icon'
-import { useHistory } from 'react-router'
+import { signin, signup } from '../../actions/auth'
 
 const Auth = () => {
     const classes = useStyles() 
@@ -33,7 +34,12 @@ const Auth = () => {
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
+        if(isSignUp) {
+            dispatch(signup, history)
+        } else {
+            dispatch(signup, history)
+        }
+        
     }
 
     const googleSuccess = async (res) => {
