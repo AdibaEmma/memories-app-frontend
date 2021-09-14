@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Avatar, Button, Paper, Grid, Typography, Container, formatMs } from '@material-ui/core'
+import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core'
 import { GoogleLogin } from 'react-google-login'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import { useDispatch } from 'react-redux'
@@ -37,7 +37,7 @@ const Auth = () => {
         if(isSignUp) {
             dispatch(signup, history)
         } else {
-            dispatch(signup, history)
+            dispatch(signin, history)
         }
         
     }

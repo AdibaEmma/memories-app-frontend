@@ -13,7 +13,7 @@ export const fetch_posts = () => async dispatch => {
         const { data } = await api.fetchPosts()
         dispatch({ type: FETCH_POSTS, payload: data })
     } catch (err) {
-        console.log(err.message);
+        console.log(err);
     }
 }
 
@@ -22,7 +22,7 @@ export const create_post = (post) => async dispatch => {
         const { data } = await api.createPost(post)
         dispatch({ type: CREATE_POST, payload: data })
     } catch (err) {
-        console.log(err.message);
+        console.log(err);
     }
     
 }

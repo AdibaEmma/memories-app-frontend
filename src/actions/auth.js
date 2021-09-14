@@ -1,15 +1,26 @@
-export const signin = () => async dispatch => {
+import { AUTH} from "./types";
+import * as api from '../api'
+
+export const signin = (formData, history) => async dispatch => {
     try {
+        const { data } = await api.signIn(formData)
+
+        dispatch({ type: AUTH, payload: data})
+        history.push('/')
+    } catch (error) {
         
+    }
+}
+
+export const signup = (formData, history) => async dispatch => {
+    try {
+        const { data } = await api.signUp(formData)
+
+        dispatch({ type: AUTH, payload: data})
+
+        history.push('/')
     } catch (error) {
         console.log(error);
     }
 }
 
-export const signup = () => async dispatch => {
-    try {
-        
-    } catch (error) {
-        
-    }
-}
