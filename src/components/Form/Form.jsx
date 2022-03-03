@@ -44,7 +44,7 @@ const Form = ({ currentId, setCurrentId }) => {
     
     return (
         <Paper className={classes.paper}>
-            <form action="" autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
+            <form action="" autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit} data-netlify="true">
                 <Typography variant="h6">{ currentId ? 'Edit' : 'Create'} a Memory</Typography>
                 <TextField name="creator" variant="outlined" label="Creator" fullWidth value={postData.creator} onChange={e => onInputChange(e, 'creator') } />
                 <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={e => onInputChange(e, 'title') } />
