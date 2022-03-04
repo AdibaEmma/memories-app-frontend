@@ -13,7 +13,7 @@ import { signin, signup } from '../../actions/auth'
 const Auth = () => {
     const classes = useStyles() 
     const [showpassword, setShowPassword] = useState(false)
-    const [isSignUp, setIsSingUP] = useState(false)
+    const [isSignUp, setIsSignUp] = useState(false)
     const [formData, setFormData] = useState({firstName: '', lastName: '', email: '', password: '', confirmPassword: ''})
     const dispatch = useDispatch()
     const history = useHistory()
@@ -28,16 +28,16 @@ const Auth = () => {
     }
 
     const switchMode = () => {
-        setIsSingUP(prevValue => !prevValue)
+        setIsSignUp(prevValue => !prevValue)
         setShowPassword(false)
     }
 
     const onFormSubmit = (e) => {
         e.preventDefault();
         if(isSignUp) {
-            dispatch(signup, history)
+            dispatch(signup(formData, history))
         } else {
-            dispatch(signin, history)
+            dispatch(signin(formData, history))
         }
         
     }

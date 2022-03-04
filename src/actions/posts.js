@@ -17,10 +17,12 @@ export const fetch_posts = () => async dispatch => {
     }
 }
 
-export const create_post = (post) => async dispatch => {
+export const create_post = (post, history) => async dispatch => {
     try {
         const { data } = await api.createPost(post)
         dispatch({ type: CREATE_POST, payload: data })
+        
+        history.push("/")
     } catch (err) {
         console.log(err);
     }
