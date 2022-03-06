@@ -20,11 +20,11 @@ const Home = () => {
   return (
     <Grow in>
       <Container>
-        <Grid className={classes.mainContainer} container justifyContent="space-between" alignItems="stretch" spacing={3}>
-          <Grid item xs={12} sm={7}>
+        <Grid className={classes.mainContainer} container justifyContent="space-between" spacing={3}>
+          <Grid item sm={12} lg={7}>
             <Posts setCurrentId={setCurrentId} />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item sm={12} lg={4}>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
           </Grid>
         </Grid>

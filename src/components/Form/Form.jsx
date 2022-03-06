@@ -18,24 +18,24 @@ const Form = ({ currentId, setCurrentId }) => {
     })
 
     const post = useSelector((state ) => currentId ? state.posts.find(post => post._id === currentId) : null)
+    const user = useSelector((state ) => state?.auth?.authData?.result)
 
     const dispatch = useDispatch()
     const history = useHistory()
 
     useEffect(() => {
         if(post) setPostData(post)
-    }, [post])
+    }, [post,user])
 
-    const onInputChange = (e, field) => setPostData({ ...postData, [field]: e.target.value }) 
+    const onInputChange = (e, field) => setPostData({ ...postData, name: user?.name, [field]: e.target.value }) 
 
-   
     const handleSubmit = (e) => {
         e.preventDefault();
         if( currentId ) {
             dispatch(update_post(currentId, postData))
         } else {
             console.log('create');
-            dispatch(create_post(postData, history))
+            dispatch(create_post({...postData, name: user?.name}, history))
         }
         clear()
     }
