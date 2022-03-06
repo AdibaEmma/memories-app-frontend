@@ -45,7 +45,7 @@ const Navbar = () => {
             </div>
             <Toolbar>
                 {user ? (
-                    <div>
+                    <>
                         <div className={classes.mobile_profile}>
                             <IconButton
                                 aria-label="account of current user"
@@ -82,7 +82,7 @@ const Navbar = () => {
                             <Button className={classes.logout} variant="contained" color="secondary" onClick={logout}>Logout</Button>
 
                         </div>
-                    </div>
+                    </>
                 ) : (
                     <Button component={Link} to="/auth" variant="contained" color="primary">Sign In</Button>
                 )

@@ -40,13 +40,14 @@ export default makeStyles((theme) => ({
       display: 'none',
     },
   },
-  moblie_profile: {
+  mobile_profile: {
     display: 'flex',
     justifyContent: 'flex-end',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('lg')]: {
+      
       display: 'none',
-      [theme.overrides.MuiAvatar]: {
-        display: 'none'
+       "& Iconbutton": {
+        display: 'none !important',
       }
     },
   },
