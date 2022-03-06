@@ -33,7 +33,7 @@ const Form = ({ currentId, setCurrentId }) => {
         e.preventDefault();
         if( currentId ) {
             console.log('update post');
-            dispatch(update_post(currentId, postData ))
+            dispatch(update_post(currentId, {...postData, name: user?.name} ))
         } else {
             dispatch(create_post({...postData, name: user?.name}, history))
         }
