@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 const live_api = true
-const url = live_api ? 'https://memsmile.herokuapp.com' : 'http://localhost:5000';
+const url = live_api ? 'https://memsmile-api.onrender.com' : 'http://localhost:5000';
 const API = axios.create({ baseURL: url})
 API.interceptors.request.use((req) => {
     if(localStorage.getItem('profile')) {
