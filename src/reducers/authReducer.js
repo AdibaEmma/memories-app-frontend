@@ -1,4 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
+import { AUTH, LOGOUT } from "../actions/types";
+
+const initialState = {
+  authData: null,
+};
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case AUTH: {
